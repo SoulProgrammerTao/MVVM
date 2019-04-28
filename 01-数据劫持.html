@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  let obj = {
+    name: 'zs'
+  }
+  let temp = obj.name
+  Object.defineProperty(obj, 'name', {
+    configurable: true, // 表示可配置
+    enumerable: true, // 表示可遍历
+    get () {
+      // 每次获取对象的这个属性的时候，就会被get方法劫持
+      console.log('get执行了')
+      return temp
+    },
+    set (newValue) {
+      console.log('set方法执行了')
+      console.log(newValue)
+      temp = newValue
+    }
+  })
+</script>
+</html>

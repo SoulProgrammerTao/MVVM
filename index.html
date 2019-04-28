@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{msg}}</p>
+    <p v-text="msg"></p>
+    <p v-html="tag"></p>
+    <p v-aa="tag"></p>
+    <input type="text" v-model="msg">
+    <br>
+    <button v-on:click="clickFn">点点点</button>
+    <p>{{car.color}}</p>
+    <p v-text="car.brand"></p>
+  </div>
+  
+</body>
+<script src="./src/observer.js"></script>
+<script src="./src/compile.js"></script>
+<script src="./src/vue.js"></script>
+<script>
+  var app = document.getElementById('app')
+  const vm = new Vue({
+    el: app,
+    data: {
+      msg: 'hello vue7777777',
+      tag: '<h1>1111<h1>',
+      car: {
+        brand: '奔驰',
+        color: 'yellow'
+      }
+    },
+    methods: {
+      clickFn () {
+        console.log(this.$data.msg)
+      }
+    },
+  })
+</script>
+</html>
